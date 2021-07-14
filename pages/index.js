@@ -8,11 +8,13 @@ import { ProfileRelationsBoxWrapper } from '../src/components/ProfileRelations'
 // `
 
 function ProfileSidebar(props) {
+  const { githubUser } = props
   return (
     <Box>
       <img
         style={{ borderRadius: '8px' }}
-        src={`https://github.com/${props.githubUser}.png`}
+        src={`https://github.com/${githubUser}.png`}
+        alt={githubUser}
       />
     </Box>
   )
@@ -31,7 +33,7 @@ export default function Home() {
 
   return (
     <>
-      <AlurakutMenu></AlurakutMenu>
+      <AlurakutMenu />
       <MainGrid>
         <div className="profileArea" style={{ gridArea: 'profileArea' }}>
           <ProfileSidebar githubUser={githubUser} />
@@ -39,7 +41,7 @@ export default function Home() {
         <div className="welcomeArea" style={{ gridArea: 'welcomeArea' }}>
           <Box>
             <h1 className="title">Bem vindo(a)</h1>
-            <OrkutNostalgicIconSet></OrkutNostalgicIconSet>
+            <OrkutNostalgicIconSet />
           </Box>
         </div>
         <div
@@ -51,16 +53,17 @@ export default function Home() {
               Pessoas da Comunidades ({pessoasFavoritas.length})
             </h2>
             <ul>
-              {pessoasFavoritas.map((itemAtual) => {
-                return (
-                  <li key={itemAtual.id}>
-                    <a href={`/users/${itemAtual}`}>
-                      <img src={`https://github.com/${itemAtual}.png`} />
-                      <span>{itemAtual}</span>
-                    </a>
-                  </li>
-                )
-              })}
+              {pessoasFavoritas.map((itemAtual) => (
+                <li key={itemAtual.id}>
+                  <a href={`/users/${itemAtual}`}>
+                    <img
+                      src={`https://github.com/${itemAtual}.png`}
+                      alt={itemAtual}
+                    />
+                    <span>{itemAtual}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </ProfileRelationsBoxWrapper>
         </div>

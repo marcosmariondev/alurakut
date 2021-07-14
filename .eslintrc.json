@@ -14,7 +14,10 @@
   "plugins": ["react"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "@next/next/no-img-element": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off"
   },
   "globals": {
     "React": "writable"
