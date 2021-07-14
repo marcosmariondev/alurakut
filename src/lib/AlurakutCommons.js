@@ -39,16 +39,18 @@ export function AlurakutMenu({ githubUser }) {
         </nav>
 
         <nav>
-          <a href={`/logout`}>Sair</a>
+          <a href="/logout">Sair</a>
           <div>
             <input placeholder="Pesquisar no Orkut" />
           </div>
         </nav>
 
         <button onClick={() => setMenuState(!isMenuOpen)}>
-          {isMenuOpen && <img src={`${BASE_URL}/icons/menu-open.svg?v=${v}`} />}
+          {isMenuOpen && (
+            <img src={`${BASE_URL}/icons/menu-open.svg?v=${v}`} alt="" />
+          )}
           {!isMenuOpen && (
-            <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} />
+            <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} alt="" />
           )}
         </button>
       </div>
@@ -178,6 +180,7 @@ function AlurakutMenuProfileSidebar({ githubUser }) {
       <div>
         <img
           src={`https://github.com/${githubUser}.png`}
+          alt=""
           style={{ borderRadius: '8px' }}
         />
         <hr />
@@ -202,30 +205,30 @@ export function AlurakutProfileSidebarMenuDefault() {
     <AlurakutProfileSidebarMenuDefault.Wrapper>
       <nav>
         <a href="/">
-          <img src={`${BASE_URL}/icons/user.svg`} />
+          <img src={`${BASE_URL}/icons/user.svg`} alt="" />
           Perfil
         </a>
         <a href="/">
-          <img src={`${BASE_URL}/icons/book.svg`} />
+          <img src={`${BASE_URL}/icons/book.svg`} alt="" />
           Recados
         </a>
         <a href="/">
-          <img src={`${BASE_URL}/icons/camera.svg`} />
+          <img src={`${BASE_URL}/icons/camera.svg`} alt="" />
           Fotos
         </a>
         <a href="/">
-          <img src={`${BASE_URL}/icons/sun.svg`} />
+          <img src={`${BASE_URL}/icons/sun.svg`} alt="" />
           Depoimentos
         </a>
       </nav>
       <hr />
       <nav>
         <a href="/">
-          <img src={`${BASE_URL}/icons/plus.svg`} />
+          <img src={`${BASE_URL}/icons/plus.svg`} alt="" />
           GitHub Trends
         </a>
         <a href="/logout">
-          <img src={`${BASE_URL}//icons/logout.svg`} />
+          <img src={`${BASE_URL}//icons/logout.svg`} alt="" />
           Sair
         </a>
       </nav>
@@ -275,6 +278,7 @@ export function OrkutNostalgicIconSet(props) {
           >
             <img
               key={`orkut__icon_set__${slug}_img`}
+              alt=""
               className="OrkutNostalgicIconSet__iconSample"
               src={`https://alurakut.vercel.app/icons/${icon}.svg`}
             />
@@ -292,15 +296,16 @@ export function OrkutNostalgicIconSet(props) {
           <li key={`orkut__icon_set__${slug}`}>
             <span className="OrkutNostalgicIconSet__title">{name}</span>
             <span
-              className="OrkutNostalgicIconSet__iconComplex"
-              className="OrkutNostalgicIconSet__number"
+              className="OrkutNostalgicIconSet__iconComplex OrkutNostalgicIconSet__number"
               style={{ gridArea: 'number' }}
             >
               {[0, 1, 2].map((_, index) => {
                 const isHeartActive = index <= total - 1
                 return (
                   <img
+                    // eslint-disable-next-line react/no-array-index-key
                     key={`orkut__icon_set__${slug}_img_${index}`}
+                    alt=""
                     src={`https://alurakut.vercel.app/icons/${icon}.svg`}
                     style={{
                       marginRight: '2px',
